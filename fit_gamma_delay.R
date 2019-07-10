@@ -30,16 +30,3 @@ gammapred <- (gammafit
               , dens = Counts/sum(Counts)
               )
 )
-
-gg <- (ggplot(gammapred,aes(Diffdays, color=Pandemic))
-   + facet_wrap(~interaction(Diagnosis,Type), scale="free_y")
-   + geom_jitter(aes(y=dens))
-   + geom_line(aes(y=pred))
-   + scale_color_manual(values = c("grey","black"))
-   + theme_bw()
-   + theme(legend.position = "bottom")
-)
-
-print(gg)
-
-print(gg + scale_y_log10())

@@ -26,7 +26,7 @@ dpoismix <- function(x,ff){
 
 
 mpfit <- (delay_counts
-   %>% 
+   %>% dplyr:::select(-X)
    %>% filter(Type %in% c("Admission to Discharge", "Service to Discharge", "Admission to Mortality"))
    # %>% filter(Type == "Admission to Mortality")
    %>% filter(Diffdays <= cutoff)
@@ -49,16 +49,3 @@ mppred <- (mpfit
    %>% group_by(Type, Diagnosis, Pandemic)
    %>% mutate(dens = Counts/sum(Counts))
 )
-
-gg <- (ggplot(mppred,aes(Diffdays, color=Pandemic))
-       + facet_wrap(~interaction(Diagnosis,Type), scale="free_y")
-       + geom_jitter(aes(y=dens))
-       + geom_line(aes(y=pred))
-       + scale_color_manual(values = c("grey","black"))
-       + theme_bw()
-       + theme(legend.position = "bottom")
-)
-
-print(gg)
-
-print(gg + scale_y_log10())
