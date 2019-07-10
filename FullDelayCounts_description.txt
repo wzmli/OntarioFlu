@@ -1,0 +1,7 @@
+"": row index
+Pandemic: Pandemic or Non-pandemic year
+Diagnosis: diagnosis type (Influenza, Pneumonia, Other Respiratory)
+Type: delay type
+Diffdays: lag, in days
+Counts: total counts (average counts for non-pandemic years)
+
