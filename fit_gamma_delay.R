@@ -10,6 +10,7 @@ cutoff <- 30
 gammafit <- (delay_counts
        %>% dplyr:::select(-X)
        %>% filter(Type %in% c("Admission to Discharge", "Service to Discharge", "Admission to Mortality"))
+       %>% mutate(Diagnosis = factor(Diagnosis, levels=c("Influenza", "Pneumonia", "Other Respiratory")))
        %>% filter(Diffdays <= cutoff)
        %>% mutate(Counts = floor(as.integer(Counts)))
        %>% filter(!is.na(Counts))
