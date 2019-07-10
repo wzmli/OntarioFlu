@@ -6,12 +6,12 @@ gg <- (ggplot(gammapred,aes(Diffdays, alpha=Pandemic, color=Diagnosis))
        + geom_line(aes(y=pred))
        + scale_color_manual(values = c("red","dark green","black"))
        + scale_alpha_manual(values = c(0.3,1))
+       + ylab("Probability Density")
+       + xlab("Days")
        + theme_bw()
-       + theme(legend.position = "bottom"
-          # , strip.background.x = element_blank()
-          # , strip.text.x = element_blank()
-       )
-)
+       + theme(legend.position = "bottom", legend.box = "vertical"
+               , legend.box.margin = margin(-0.4,0,0,0,unit = "cm")
+               , legend.spacing.y = unit(-0.3, "cm")))
 
 print(gg)
 
