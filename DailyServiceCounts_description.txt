@@ -1,0 +1,5 @@
+SVC_DT: Service Date 
+n: Counts
+DIAG: diagnosis type (460-466, 486, 487; ICD-9 code)
+year: xyy represents 200x-20yy. 
+
